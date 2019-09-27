@@ -1,2 +1,22 @@
 Neural's Basics
 Installing Pytorch
+Pytorch basics and its similarities with numpy
+
+Strating will 1st deeplearning program:
+
+Using torchvision's inbuilt datasets to train and test
+    Use train and test parameters, dataset used for training must not be used to validate the accuracy of classifier.
+    If we do so it will perform better with the same data and we won't know if the model is overfitting or not. To resolve this
+    we use two different parameters with two different data one for training and one for testing. So, even if the model is
+    overfitting it will not work well with the new test data since this data is new the classification or the output will be 
+    invalid.
+
+    Now to load data we need to set the batch size (it is the number of samples to be passed to the neural network at a time), if the 
+    model is small enough to store in your RAM or GPU memory you can do so but it wouldn't be practical.
+    Mostly batch size is set between (8 - 64) range regardless of RAM or GPU memory size.
+    
+    Very Important: Data used for training must be balanced i.e. if for example we are building a classifier to classify handwritten
+    letters (MNIST) and if the sample data contains more number of samples representing number 7 then the classifier will try to 
+    predict number 7 and will get stuck. Hence, data present in datasets must be balanced.
+    
+    

@@ -1,1 +1,26 @@
-Building Neural Network
+Building FF Neural Network
+
+import pytorch neural network modules (pytorch.nn) (this import contains classes) and import (pytorch.nn.functional) (this import contains functions). Both are useful.
+
+Define a class to build the neural network
+Pass the defined class (nn.Modules) object from the pytorch.nn import.
+  Define init method in the defined class
+    Build the layers using nn.Linear() and pass these layers to instansiated variables.
+    
+  Now to connect these layers to form FFNN
+    Define a method to connect these layers
+      Connect the layers using a variable for eg if self.fc1 and self.fc2 are two layers then we can connect them by doing this 
+      
+      x = self.fc1(x) x = self.fc2(x)
+      
+      Now to activate this FFNN we use relu function (rectified linear unit or rather sigmoid activation function) we just have to
+      encapsulate the x = self.fc1(x) x = self.fc2(x) with relu and relu is present in "pytorch.nn.functional". After encapsulation
+      it looks something like this x = F.relu(self.fc1(x)) x = self.fc2(x), we dont encapsulate the last layer because activation 
+      works between layers and so we dont apply those at the output layer.
+      
+      For the last layer returning values need to be part of a probablity distribution so we use log_softmax function present in 
+      "pytorch.nn.functional"
+      
+Now to train the model we need to consider two things loss and optimizer
+  On basis of loss we optimize the weights and slowly decrease losses over time
+
